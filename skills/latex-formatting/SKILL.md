@@ -1,7 +1,7 @@
 ---
 name: latex-formatting
 description: Handle LaTeX formatting, templates, and styling for academic papers. Set up conference templates (ICML, ICLR, NeurIPS, AAAI, ACL), fix formatting issues, manage packages, and ensure venue-specific compliance. Use when the user needs to set up a paper template, fix LaTeX formatting, or prepare for submission.
-argument-hint: [action] [venue-or-file]
+argument-hint: [venue-or-file]
 ---
 
 # LaTeX Formatting

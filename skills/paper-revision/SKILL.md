@@ -1,7 +1,7 @@
 ---
 name: paper-revision
 description: Revise papers based on reviewer feedback. Map reviewer concerns to specific sections, apply targeted edits, run additional experiments if needed, and verify improvements. Use after receiving peer review with revision requests.
-argument-hint: [reviews] [paper-draft]
+argument-hint: [reviews-or-draft]
 ---
 
 # Paper Revision

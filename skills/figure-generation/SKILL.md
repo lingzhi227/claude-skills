@@ -1,7 +1,7 @@
 ---
 name: figure-generation
 description: Generate publication-quality scientific figures using matplotlib/seaborn with a three-phase pipeline (query expansion, code generation with execution, VLM visual feedback). Handles bar charts, line plots, heatmaps, training curves, ablation plots, and more. Use when the user needs figures, plots, or visualizations for a paper.
-argument-hint: [figure-description] [data-source]
+argument-hint: [figure-description]
 ---
 
 # Scientific Figure Generation

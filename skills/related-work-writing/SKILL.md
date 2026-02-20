@@ -1,7 +1,7 @@
 ---
 name: related-work-writing
 description: Write Related Work sections that compare and contrast prior work with your approach. Organize by theme, cite broadly, and explain how your work differs. Use when writing or improving the Related Work section of a paper.
-argument-hint: [paper-draft] [references]
+argument-hint: [paper-draft]
 ---
 
 # Related Work Writing

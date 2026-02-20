@@ -1,7 +1,7 @@
 ---
 name: math-reasoning
 description: Formal mathematical reasoning for research papers — derive equations, write proofs, formalize problem settings, select statistical tests, and generate LaTeX math notation. Use when the user needs mathematical derivations, theorem proofs, notation tables, or statistical analysis formalization.
-argument-hint: [task] [context]
+argument-hint: [task-or-context]
 ---
 
 # Mathematical Reasoning

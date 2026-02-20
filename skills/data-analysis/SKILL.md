@@ -1,7 +1,7 @@
 ---
 name: data-analysis
 description: Generate statistical analysis code with 4-round review. Select appropriate statistical tests, interpret results, and produce analysis reports with p-values, effect sizes, and confidence intervals. Use when analyzing experimental data for a paper.
-argument-hint: [data-source] [hypothesis]
+argument-hint: [data-source]
 ---
 
 # Data Analysis

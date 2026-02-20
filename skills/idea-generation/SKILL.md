@@ -1,7 +1,7 @@
 ---
 name: idea-generation
 description: Generate novel research ideas with iterative refinement and novelty checking against literature. Score ideas on Interestingness, Feasibility, and Novelty. Use when brainstorming research directions or validating idea novelty.
-argument-hint: [research-area] [context]
+argument-hint: [research-area]
 ---
 
 # Idea Generation

@@ -1,7 +1,7 @@
 ---
 name: table-generation
 description: Generate publication-quality LaTeX tables from experimental results. Convert JSON/CSV data to booktabs-styled tables with bold best results, multi-row layouts, and proper captions. Use when creating result tables, comparison tables, or ablation tables for papers.
-argument-hint: [type] [data-source]
+argument-hint: [data-source]
 ---
 
 # Table Generation
