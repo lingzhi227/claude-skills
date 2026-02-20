@@ -18,7 +18,7 @@ Systematic academic literature review in 6 phases. Searches arXiv, Semantic Scho
 ### Step 1: Install the skill
 
 ```bash
-npx skills add lingzhi/claude-skills -g -a claude-code
+npx skills add lingzhi227/claude-skills -g -a claude-code
 ```
 
 > **Important:** Use the `-g` (global) flag. The scripts use `~/.claude/skills/deep-research/` paths that require global installation.
@@ -26,7 +26,7 @@ npx skills add lingzhi/claude-skills -g -a claude-code
 ### Step 2: Install the `/research` command + check dependencies
 
 ```bash
-git clone https://github.com/lingzhi/claude-skills.git /tmp/claude-skills
+git clone https://github.com/lingzhi227/claude-skills.git /tmp/claude-skills
 /tmp/claude-skills/install.sh
 rm -rf /tmp/claude-skills
 ```
