@@ -28,8 +28,8 @@ Apply both refinement passes from `references/refinement-prompts.md`:
 
 ## References
 
-- Section writing tips: `~/.claude/skills/paper-writing-section/references/section-tips.md`
-- Refinement prompts and error checklist: `~/.claude/skills/paper-writing-section/references/refinement-prompts.md`
+- Section writing tips: `~/.agent/skills/paper-writing-section/references/section-tips.md`
+- Refinement prompts and error checklist: `~/.agent/skills/paper-writing-section/references/refinement-prompts.md`
 
 ## Output
 

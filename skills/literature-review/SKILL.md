@@ -15,20 +15,20 @@ Conduct deep literature reviews through multi-perspective dialogue and systemati
 
 ## References
 
-- Multi-perspective dialogue prompts (STORM): `~/.claude/skills/literature-review/references/dialogue-prompts.md`
-- Literature review workflow (AgentLaboratory): `~/.claude/skills/literature-review/references/review-workflow.md`
+- Multi-perspective dialogue prompts (STORM): `~/.agent/skills/literature-review/references/dialogue-prompts.md`
+- Literature review workflow (AgentLaboratory): `~/.agent/skills/literature-review/references/review-workflow.md`
 
 ## Scripts (from literature-search skill)
 
 ```bash
 # Search Semantic Scholar
-python ~/.claude/skills/deep-research/scripts/search_semantic_scholar.py --query "topic" --max-results 20
+python ~/.agent/skills/deep-research/scripts/search_semantic_scholar.py --query "topic" --max-results 20
 
 # Search OpenAlex
-python ~/.claude/skills/literature-search/scripts/search_openalex.py --query "topic" --max-results 20
+python ~/.agent/skills/literature-search/scripts/search_openalex.py --query "topic" --max-results 20
 
 # Search arXiv
-python ~/.claude/skills/deep-research/scripts/search_arxiv.py --query "topic" --max-results 10
+python ~/.agent/skills/deep-research/scripts/search_arxiv.py --query "topic" --max-results 10
 ```
 
 ## Workflow

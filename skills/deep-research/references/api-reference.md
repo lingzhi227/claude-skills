@@ -46,7 +46,7 @@ http://export.arxiv.org/api/query
 
 ### Script Usage
 ```bash
-python /Users/lingzhi/.claude/skills/deep-research/scripts/search_arxiv.py \
+python ~/.agent/skills/deep-research/scripts/search_arxiv.py \
   --query "long context reasoning LLM" \
   --max-results 50 \
   --categories cs.AI cs.CL \
@@ -130,7 +130,7 @@ externalIds,url,publicationDate,tldr,isOpenAccess,openAccessPdf
 
 ### Script Usage
 ```bash
-python /Users/lingzhi/.claude/skills/deep-research/scripts/search_semantic_scholar.py \
+python ~/.agent/skills/deep-research/scripts/search_semantic_scholar.py \
   --query "long horizon reasoning LLM agent" \
   --max-results 100 \
   --min-citations 10 \
@@ -224,13 +224,13 @@ This extracts text directly — no scripts needed for individual papers.
 ### Batch PDF Processing
 For multiple papers, use the scripts:
 ```bash
-python /Users/lingzhi/.claude/skills/deep-research/scripts/download_papers.py \
+python ~/.agent/skills/deep-research/scripts/download_papers.py \
   --jsonl paper_db.jsonl \
   --output-dir papers/ \
   --max-downloads 20 \
   --sort-by-citations
 
-python /Users/lingzhi/.claude/skills/deep-research/scripts/pdf_extract.py \
+python ~/.agent/skills/deep-research/scripts/pdf_extract.py \
   --input papers/ \
   --output-dir texts/ \
   --sections

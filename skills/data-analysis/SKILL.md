@@ -15,22 +15,22 @@ Generate rigorous statistical analysis code with multi-round review.
 
 ## References
 
-- 4-round code review prompts: `~/.claude/skills/data-analysis/references/review-prompts.md`
+- 4-round code review prompts: `~/.agent/skills/data-analysis/references/review-prompts.md`
 
 ## Scripts
 
 ### Statistical summary and comparison
 ```bash
-python ~/.claude/skills/data-analysis/scripts/stat_summary.py --input results.csv --compare method --metric accuracy --output summary.json
-python ~/.claude/skills/data-analysis/scripts/stat_summary.py --input results.csv --describe
+python ~/.agent/skills/data-analysis/scripts/stat_summary.py --input results.csv --compare method --metric accuracy --output summary.json
+python ~/.agent/skills/data-analysis/scripts/stat_summary.py --input results.csv --describe
 ```
 
 Detects data types, recommends tests, runs comparisons, outputs effect sizes and significance stars. Requires numpy, scipy.
 
 ### Format p-values
 ```bash
-python ~/.claude/skills/data-analysis/scripts/format_pvalue.py --values "0.001 0.05 0.23" --format stars
-python ~/.claude/skills/data-analysis/scripts/format_pvalue.py --csv results.csv --column pvalue --format latex
+python ~/.agent/skills/data-analysis/scripts/format_pvalue.py --values "0.001 0.05 0.23" --format stars
+python ~/.agent/skills/data-analysis/scripts/format_pvalue.py --csv results.csv --column pvalue --format latex
 ```
 
 Formats p-values with stars, LaTeX notation, or plain text. Stdlib-only.

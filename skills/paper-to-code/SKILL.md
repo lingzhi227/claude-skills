@@ -14,7 +14,7 @@ Convert a research paper into a complete, runnable code repository.
 
 ## References
 
-- Paper2Code prompts (planning, analysis, coding stages): `~/.claude/skills/paper-to-code/references/paper-to-code-prompts.md`
+- Paper2Code prompts (planning, analysis, coding stages): `~/.agent/skills/paper-to-code/references/paper-to-code-prompts.md`
 
 ## Workflow (from Paper2Code)
 

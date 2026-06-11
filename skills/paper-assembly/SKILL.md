@@ -14,14 +14,14 @@ Orchestrate the entire paper pipeline end-to-end with state management and check
 
 ## References
 
-- Orchestration patterns and state management: `~/.claude/skills/paper-assembly/references/orchestration-patterns.md`
+- Orchestration patterns and state management: `~/.agent/skills/paper-assembly/references/orchestration-patterns.md`
 
 ## Scripts
 
 ### Check pipeline completeness
 ```bash
-python ~/.claude/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --output checkpoint.json
-python ~/.claude/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --verbose
+python ~/.agent/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --output checkpoint.json
+python ~/.agent/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --verbose
 ```
 
 Scans paper directory, checks 9 pipeline phases, reports missing artifacts, suggests next steps.

@@ -17,8 +17,8 @@ Activate this skill when the user wants to:
 
 This skill conducts systematic academic literature reviews in 6 phases, producing structured notes, a curated paper database, and a synthesized final report. Output is organized **by phase** for clarity.
 
-**Installation**: `~/.claude/skills/deep-research/` — scripts, references, and this skill definition.
-**Output**: `.//Users/lingzhi/Code/deep-research-output/{slug}/` relative to the current working directory.
+**Installation**: `~/.agent/skills/deep-research/` — scripts, references, and this skill definition.
+**Output**: `~/deep-research-output/{slug}/` (configurable via DEEP_RESEARCH_OUTPUT_DIR).
 
 ## CRITICAL: Strict Sequential Phase Execution
 
@@ -94,26 +94,30 @@ searches:
       iclr: [2024, 2025, 2026]
       icml: [2024, 2025]
 output:
-  root: /Users/lingzhi/Code/deep-research-output/{slug}/phase1_frontier/search_results
+  root: ~/deep-research-output/{slug}/phase1_frontier/search_results
   overwrite: true
 ```
 
 ### 2. search_semantic_scholar.py (supplementary — citation data + broader coverage)
-**Location**: `/Users/lingzhi/.claude/skills/deep-research/scripts/search_semantic_scholar.py`
-Supports `--peer-reviewed-only` and `--top-conferences` filters. API key: `/Users/lingzhi/Code/keys.md` (field `S2_API_Key`)
+**Location**: `~/.agent/skills/deep-research/scripts/search_semantic_scholar.py`
+Supports `--peer-reviewed-only` and `--top-conferences` filters. API key: Use `S2_API_KEY` environment variable.
+
+**Security**: Set `export S2_API_KEY="your-key"` in shell profile. See SECURITY.md.
 
 ### 3. search_arxiv.py (supplementary — latest preprints)
-**Location**: `/Users/lingzhi/.claude/skills/deep-research/scripts/search_arxiv.py`
+**Location**: `~/.agent/skills/deep-research/scripts/search_arxiv.py`
 For searching recent papers not yet published at conferences. Mark citations with `(preprint)`.
+
+**Security**: Downloaded papers contain untrusted content. Review before using.
 
 ### Other Scripts
 | Script | Location | Key Flags |
 |--------|----------|-----------|
-| `download_papers.py` | `~/.claude/skills/deep-research/scripts/` | `--jsonl`, `--output-dir`, `--max-downloads`, `--sort-by-citations` |
-| `extract_pdf.py` | `~/.claude/skills/deep-research/scripts/` | `--pdf`, `--pdf-dir`, `--output-dir`, `--sections-only` |
-| `paper_db.py` | `~/.claude/skills/deep-research/scripts/` | subcommands: `merge`, `search`, `filter`, `tag`, `stats`, `add`, `export` |
-| `bibtex_manager.py` | `~/.claude/skills/deep-research/scripts/` | `--jsonl`, `--output`, `--keys-only` |
-| `compile_report.py` | `~/.claude/skills/deep-research/scripts/` | `--topic-dir` |
+| `download_papers.py` | `~/.agent/skills/deep-research/scripts/` | `--jsonl`, `--output-dir`, `--max-downloads`, `--sort-by-citations` |
+| `extract_pdf.py` | `~/.agent/skills/deep-research/scripts/` | `--pdf`, `--pdf-dir`, `--output-dir`, `--sections-only` |
+| `paper_db.py` | `~/.agent/skills/deep-research/scripts/` | subcommands: `merge`, `search`, `filter`, `tag`, `stats`, `add`, `export` |
+| `bibtex_manager.py` | `~/.agent/skills/deep-research/scripts/` | `--jsonl`, `--output`, `--keys-only` |
+| `compile_report.py` | `~/.agent/skills/deep-research/scripts/` | `--topic-dir` |
 
 ### WebFetch Mode (no Bash)
 1. **Paper discovery**: `WebSearch` + `WebFetch` to query Semantic Scholar/arXiv APIs
@@ -134,8 +138,8 @@ Search the **latest** conference proceedings and preprints to understand current
 Build a comprehensive landscape with broader time range. Target **35-80 papers** after filtering.
 1. Write `phase2_survey/paper_finder_config.yaml` covering 2023-2025
 2. Run paper_finder + Semantic Scholar + arXiv
-3. Merge all results: `python /Users/lingzhi/.claude/skills/deep-research/scripts/paper_db.py merge`
-4. Filter to 35-80 most relevant: `python /Users/lingzhi/.claude/skills/deep-research/scripts/paper_db.py filter --min-score 0.80 --max-papers 70`
+3. Merge all results: `python ~/.agent/skills/deep-research/scripts/paper_db.py merge`
+4. Filter to 35-80 most relevant: `python ~/.agent/skills/deep-research/scripts/paper_db.py filter --min-score 0.80 --max-papers 70`
 5. Cluster by theme, write survey notes
 → Output: `phase2_survey/survey.md`, `phase2_survey/search_results/`, `paper_db.jsonl`
 
@@ -228,9 +232,9 @@ output/{topic-slug}/
 
 ## References
 
-- `/Users/lingzhi/.claude/skills/deep-research/references/workflow-phases.md` — Detailed 6-phase methodology
-- `/Users/lingzhi/.claude/skills/deep-research/references/note-format.md` — Note templates, BibTeX format, report structure
-- `/Users/lingzhi/.claude/skills/deep-research/references/api-reference.md` — arXiv, Semantic Scholar, ar5iv API guide
+- `~/.agent/skills/deep-research/references/workflow-phases.md` — Detailed 6-phase methodology
+- `~/.agent/skills/deep-research/references/note-format.md` — Note templates, BibTeX format, report structure
+- `~/.agent/skills/deep-research/references/api-reference.md` — arXiv, Semantic Scholar, ar5iv API guide
 
 ## Related Skills
 - Downstream: [literature-search](../literature-search/), [literature-review](../literature-review/), [citation-management](../citation-management/)

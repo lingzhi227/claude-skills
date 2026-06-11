@@ -17,8 +17,8 @@ Generate publication-quality figures for research papers.
 
 ### Generate figure template
 ```bash
-python ~/.claude/skills/figure-generation/scripts/figure_template.py --type bar --output figure_script.py --name comparison
-python ~/.claude/skills/figure-generation/scripts/figure_template.py --list-types
+python ~/.agent/skills/figure-generation/scripts/figure_template.py --type bar --output figure_script.py --name comparison
+python ~/.agent/skills/figure-generation/scripts/figure_template.py --list-types
 ```
 
 Available types: `bar`, `training-curve`, `heatmap`, `ablation`, `line`, `scatter`, `radar`, `violin`, `tsne`, `attention`
@@ -46,8 +46,8 @@ If improvements needed: generate corrective instructions and re-execute.
 
 ## References
 
-- All MatPlotAgent prompts: `~/.claude/skills/figure-generation/references/figure-prompts.md`
-- Figure templates: `~/.claude/skills/figure-generation/scripts/figure_template.py`
+- All MatPlotAgent prompts: `~/.agent/skills/figure-generation/references/figure-prompts.md`
+- Figure templates: `~/.agent/skills/figure-generation/scripts/figure_template.py`
 
 ## Output
 

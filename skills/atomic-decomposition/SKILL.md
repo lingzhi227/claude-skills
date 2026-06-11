@@ -14,7 +14,7 @@ Decompose research ideas into atomic concepts with math formula <-> code impleme
 
 ## References
 
-- Decomposition prompts and workflow: `~/.claude/skills/atomic-decomposition/references/decomposition-prompts.md`
+- Decomposition prompts and workflow: `~/.agent/skills/atomic-decomposition/references/decomposition-prompts.md`
 
 ## Workflow (from AI-Researcher Survey Agent)
 

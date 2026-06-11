@@ -15,8 +15,8 @@ Generate and iteratively improve ML experiment code for research papers.
 
 ## References
 
-- Experiment prompts and patterns: `~/.claude/skills/experiment-code/references/experiment-prompts.md`
-- Code patterns (error handling, repair, hill-climbing): `~/.claude/skills/experiment-code/references/code-patterns.md`
+- Experiment prompts and patterns: `~/.agent/skills/experiment-code/references/experiment-prompts.md`
+- Code patterns (error handling, repair, hill-climbing): `~/.agent/skills/experiment-code/references/code-patterns.md`
 
 ## Action: `generate`
 

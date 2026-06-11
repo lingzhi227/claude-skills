@@ -15,7 +15,7 @@ Systematically revise papers based on reviewer feedback.
 
 ## References
 
-- Revision workflow and prompts: `~/.claude/skills/paper-revision/references/revision-prompts.md`
+- Revision workflow and prompts: `~/.agent/skills/paper-revision/references/revision-prompts.md`
 
 ## Workflow
 

@@ -17,7 +17,7 @@ Manage the full lifecycle of citations in a LaTeX paper.
 
 ### Validate citations (check all cite keys resolve)
 ```bash
-python ~/.claude/skills/citation-management/scripts/validate_citations.py \
+python ~/.agent/skills/citation-management/scripts/validate_citations.py \
   --tex paper/main.tex --bib paper/references.bib --check-figures --figures-dir paper/figures/
 ```
 
@@ -25,29 +25,31 @@ Reports: missing citations, unused bib entries, duplicate keys, duplicate sectio
 
 ### Generate BibTeX from paper database
 ```bash
-python ~/.claude/skills/deep-research/scripts/bibtex_manager.py \
+python ~/.agent/skills/deep-research/scripts/bibtex_manager.py \
   --jsonl paper_db.jsonl --output references.bib
 ```
 
 ### Search for a specific paper to add
 ```bash
-python ~/.claude/skills/deep-research/scripts/search_semantic_scholar.py \
+python ~/.agent/skills/deep-research/scripts/search_semantic_scholar.py \
   --query "attention is all you need" --max-results 5 \
-  --api-key "$(grep S2_API_Key /Users/lingzhi/Code/keys.md 2>/dev/null | cut -d: -f2 | tr -d ' ')"
+  --api-key "${S2_API_KEY:-}"
 ```
+
+**Security Note**: Use environment variable for API key. See SECURITY.md.
 
 ### Harvest missing citations automatically
 ```bash
-python ~/.claude/skills/citation-management/scripts/harvest_citations.py \
+python ~/.agent/skills/citation-management/scripts/harvest_citations.py \
   --tex paper/main.tex --bib paper/references.bib --output candidates.bib --max-rounds 10
 ```
 
 Scans .tex for uncited claims, searches Semantic Scholar, outputs candidate BibTeX entries.
-Key flags: `--dry-run` (preview only), `--verbose`, `--api-key`
+Key flags: `--dry-run` (preview only), `--verbose`, `--api-key "${S2_API_KEY:-}"`
 
 ### Auto-fix missing citation placeholders
 ```bash
-python ~/.claude/skills/citation-management/scripts/validate_citations.py \
+python ~/.agent/skills/citation-management/scripts/validate_citations.py \
   --tex paper/main.tex --bib paper/references.bib --fix
 ```
 

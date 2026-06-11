@@ -16,13 +16,13 @@ Generate complete academic survey papers with structured outline, RAG-based writ
 
 ### Literature search
 ```bash
-python ~/.claude/skills/deep-research/scripts/search_semantic_scholar.py \
+python ~/.agent/skills/deep-research/scripts/search_semantic_scholar.py \
   --query "relevant search query" --max-results 50
 ```
 
 ## References
 
-- Survey prompts (outline, writing, citation, coherence): `~/.claude/skills/survey-generation/references/survey-prompts.md`
+- Survey prompts (outline, writing, citation, coherence): `~/.agent/skills/survey-generation/references/survey-prompts.md`
 
 ## Workflow (from AutoSurvey)
 

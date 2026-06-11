@@ -14,13 +14,13 @@ Make every number in the final PDF hyperlink back to the exact code line that pr
 
 ## References
 
-- Traceability patterns and LaTeX commands: `~/.claude/skills/backward-traceability/references/traceability-patterns.md`
+- Traceability patterns and LaTeX commands: `~/.agent/skills/backward-traceability/references/traceability-patterns.md`
 
 ## Scripts
 
 ### Scan hypertarget/hyperlink references
 ```bash
-python ~/.claude/skills/backward-traceability/scripts/ref_numeric_values.py \
+python ~/.agent/skills/backward-traceability/scripts/ref_numeric_values.py \
   --scan paper/main.tex --output report.json
 ```
 
@@ -28,7 +28,7 @@ Reports: all hypertargets, hyperlinks, orphan references, unreferenced numeric v
 
 ### Verify cross-reference integrity
 ```bash
-python ~/.claude/skills/backward-traceability/scripts/ref_numeric_values.py \
+python ~/.agent/skills/backward-traceability/scripts/ref_numeric_values.py \
   --verify paper/main.tex --code-output results.txt
 ```
 

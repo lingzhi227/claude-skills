@@ -35,8 +35,8 @@ Verify: dimensional consistency, boundary cases, gradient computations, notation
 
 ## References
 
-- Standard ML notation + statistical tests: `~/.claude/skills/math-reasoning/references/notation-guide.md`
-- Proof templates and theorem environments: `~/.claude/skills/math-reasoning/references/proof-templates.md`
+- Standard ML notation + statistical tests: `~/.agent/skills/math-reasoning/references/notation-guide.md`
+- Proof templates and theorem environments: `~/.agent/skills/math-reasoning/references/proof-templates.md`
 
 ## Rules
 

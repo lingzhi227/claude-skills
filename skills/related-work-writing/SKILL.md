@@ -15,7 +15,7 @@ Generate publication-quality Related Work sections with proper citations and the
 
 ## References
 
-- Related work writing prompts and strategies: `~/.claude/skills/related-work-writing/references/related-work-prompts.md`
+- Related work writing prompts and strategies: `~/.agent/skills/related-work-writing/references/related-work-prompts.md`
 
 ## Workflow
 
