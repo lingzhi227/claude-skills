@@ -17,7 +17,7 @@ Convert experimental results into publication-ready LaTeX tables.
 
 ### Generate LaTeX table from JSON/CSV
 ```bash
-python ~/.claude/skills/table-generation/scripts/results_to_table.py \
+python ~/.agent/skills/table-generation/scripts/results_to_table.py \
   --input results.json --type comparison \
   --bold-best max --caption "Performance comparison" \
   --label tab:main_results
@@ -28,7 +28,7 @@ Additional flags: `--type multi-dataset` for methods x datasets x metrics layout
 
 ## References
 
-- LaTeX table templates and examples: `~/.claude/skills/table-generation/references/table-templates.md`
+- LaTeX table templates and examples: `~/.agent/skills/table-generation/references/table-templates.md`
 
 ## Table Types
 

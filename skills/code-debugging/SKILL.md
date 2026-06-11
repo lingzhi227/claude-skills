@@ -15,7 +15,7 @@ Systematically debug experiment code with structured error categorization and fi
 
 ## References
 
-- Debug patterns and state machine: `~/.claude/skills/code-debugging/references/debug-patterns.md`
+- Debug patterns and state machine: `~/.agent/skills/code-debugging/references/debug-patterns.md`
 
 ## Workflow
 

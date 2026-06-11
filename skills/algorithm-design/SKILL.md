@@ -14,7 +14,7 @@ Formalize methods into algorithm pseudocode and system architecture diagrams.
 
 ## References
 
-- Algorithm and diagram templates: `~/.claude/skills/algorithm-design/references/algorithm-templates.md`
+- Algorithm and diagram templates: `~/.agent/skills/algorithm-design/references/algorithm-templates.md`
 
 ## Workflow
 

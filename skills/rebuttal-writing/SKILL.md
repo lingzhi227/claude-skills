@@ -15,7 +15,7 @@ Generate structured, evidence-based rebuttals to peer review comments.
 
 ## References
 
-- Rebuttal prompts and format templates: `~/.claude/skills/rebuttal-writing/references/rebuttal-prompts.md`
+- Rebuttal prompts and format templates: `~/.agent/skills/rebuttal-writing/references/rebuttal-prompts.md`
 
 ## Workflow
 

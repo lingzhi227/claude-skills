@@ -14,15 +14,15 @@ Convert a completed paper into presentation slides or poster.
 
 ## References
 
-- Slide templates and layout patterns: `~/.claude/skills/slide-generation/references/slide-templates.md`
+- Slide templates and layout patterns: `~/.agent/skills/slide-generation/references/slide-templates.md`
 
 ## Scripts
 
 ### Extract paper elements for slides
 ```bash
-python ~/.claude/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides_skeleton.tex
-python ~/.claude/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --format json --output elements.json
-python ~/.claude/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides.tex --theme metropolis
+python ~/.agent/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides_skeleton.tex
+python ~/.agent/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --format json --output elements.json
+python ~/.agent/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides.tex --theme metropolis
 ```
 
 Parses .tex, extracts title/authors/sections/equations/figures/tables, generates Beamer skeleton.

@@ -16,20 +16,20 @@ Rigorously assess whether a research idea is novel through systematic literature
 
 ### Automated novelty check
 ```bash
-python ~/.claude/skills/idea-generation/scripts/novelty_check.py \
+python ~/.agent/skills/idea-generation/scripts/novelty_check.py \
   --idea "Your research idea description" \
   --max-rounds 10 --output novelty_report.json
 ```
 
 ### Literature search
 ```bash
-python ~/.claude/skills/deep-research/scripts/search_semantic_scholar.py \
+python ~/.agent/skills/deep-research/scripts/search_semantic_scholar.py \
   --query "relevant search query" --max-results 10
 ```
 
 ## References
 
-- Assessment prompts and criteria: `~/.claude/skills/novelty-assessment/references/assessment-prompts.md`
+- Assessment prompts and criteria: `~/.agent/skills/novelty-assessment/references/assessment-prompts.md`
 
 ## Workflow
 

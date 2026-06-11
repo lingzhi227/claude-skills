@@ -1,30 +1,34 @@
 # agent-research-skills
 
-31 skills for [Claude Code](https://claude.ai/code) covering the full academic research paper lifecycle — from literature search to slide generation — plus GitHub repository analysis for research topics.
+31 skills for AI agents covering the full academic research paper lifecycle — from literature search to slide generation — plus GitHub repository analysis for research topics.
 
-Extracted from 17 GitHub repos studying LLM-agent-driven research automation. See [SKILLS_DESIGN.md](/Users/lingzhi/Code/research-engine/SKILLS_DESIGN.md) for the original design specifications.
+Harness-agnostic: works with any AI agent framework.
+
+Extracted from 17 GitHub repos studying LLM-agent-driven research automation. See [SKILLS_DESIGN.md](SKILLS_DESIGN.md) for the original design specifications.
 
 ## Installation
 
 ### One-line install
 
 ```bash
-npx skills add lingzhi227/agent-research-skills -g -a claude-code
+npx skills add lingzhi227/agent-research-skills -g
 ```
 
-> Use the `-g` (global) flag. Scripts use `~/.claude/skills/` paths that require global installation.
+> Use the `-g` (global) flag. Scripts use `~/.agent/skills/` paths that require global installation.
 
 ### Post-install setup
 
 ```bash
 git clone https://github.com/lingzhi227/agent-research-skills.git /tmp/agent-research-skills
-/tmp/agent-research-skills/install.sh
+cd /tmp/agent-research-skills
+./install.sh
+cd ..
 rm -rf /tmp/agent-research-skills
 ```
 
-This installs slash commands, checks Python dependencies, and verifies script syntax.
+This installs slash commands, checks Python dependencies, verifies script syntax, and performs security checks.
 
-### Optional dependencies
+### Required dependencies
 
 | Package | Required by | Install |
 |---------|------------|---------|
@@ -32,13 +36,29 @@ This installs slash commands, checks Python dependencies, and verifies script sy
 | PyMuPDF | `self-review`, `deep-research` (PDF parsing) | `pip install PyMuPDF` |
 | numpy + scipy | `data-analysis` (statistical tests) | `pip install numpy scipy` |
 
-### Optional configuration
+### Security Configuration
 
-1. **Semantic Scholar API key** (higher rate limits for literature search):
-   - Get one at https://www.semanticscholar.org/product/api#api-key
-   - Save in `~/keys.md`: `S2_API_Key: your-key-here`
+**IMPORTANT**: Review [SECURITY.md](SECURITY.md) for security best practices.
 
-2. **Output directory**: Deep research outputs go to `~/deep-research-output/` by default.
+**Semantic Scholar API key** (optional, for higher rate limits):
+
+1. Get a free API key at <https://www.semanticscholar.org/product/api#api-key>
+2. Add to your shell profile (~/.zshrc or ~/.bashrc):
+
+   ```bash
+   export S2_API_KEY="your-api-key-here"
+   ```
+
+3. Restart your terminal or run `source ~/.zshrc`
+
+See [.env.example](.env.example) for all configuration options.
+
+**⚠️ DO NOT store API keys in plaintext files or commit them to version control.**
+
+### Output Directories
+
+- Deep research: `~/deep-research-output/` (default)
+- GitHub research: `./github-research-output/` (default)
 
 ## Available Skills (31)
 
@@ -133,28 +153,28 @@ This installs slash commands, checks Python dependencies, and verifies script sy
 
 ```bash
 # Search GitHub repos for a research topic
-python ~/.claude/skills/github-research/scripts/search_github.py --query "multi-agent LLM coordination" --max-results 50 --output repos.jsonl
+python ~/.agent/skills/github-research/scripts/search_github.py --query "multi-agent LLM coordination" --max-results 50 --output repos.jsonl
 
 # Analyze a cloned repo's structure
-python ~/.claude/skills/github-research/scripts/analyze_repo_structure.py --repo-dir ./my-repo --output analysis.json
+python ~/.agent/skills/github-research/scripts/analyze_repo_structure.py --repo-dir ./my-repo --output analysis.json
 
 # Search literature
-python ~/.claude/skills/literature-search/scripts/search_crossref.py --query "attention mechanism" --rows 10
+python ~/.agent/skills/literature-search/scripts/search_crossref.py --query "attention mechanism" --rows 10
 
 # Validate citations
-python ~/.claude/skills/citation-management/scripts/validate_citations.py --tex paper/main.tex --bib paper/references.bib
+python ~/.agent/skills/citation-management/scripts/validate_citations.py --tex paper/main.tex --bib paper/references.bib
 
 # Generate experiment design
-python ~/.claude/skills/experiment-design/scripts/design_experiments.py --method "contrastive learning" --task classification --format markdown
+python ~/.agent/skills/experiment-design/scripts/design_experiments.py --method "contrastive learning" --task classification --format markdown
 
 # Format p-values
-python ~/.claude/skills/data-analysis/scripts/format_pvalue.py --values "0.001 0.05 0.23" --format latex
+python ~/.agent/skills/data-analysis/scripts/format_pvalue.py --values "0.001 0.05 0.23" --format latex
 
 # Extract paper elements for slides
-python ~/.claude/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides.tex
+python ~/.agent/skills/slide-generation/scripts/extract_paper_elements.py --tex main.tex --output slides.tex
 
 # Check paper pipeline completeness
-python ~/.claude/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --verbose
+python ~/.agent/skills/paper-assembly/scripts/assembly_checker.py --dir paper/ --verbose
 ```
 
 ## Architecture
@@ -171,6 +191,7 @@ skills/<skill-name>/
 ```
 
 **Design principles:**
+
 - Scripts are stdlib-only where possible (no heavy dependencies)
 - Every script has `--help`, docstring header with usage examples, and argparse CLI
 - Skills link to each other via `## Related Skills` sections (upstream/downstream/see-also)
@@ -178,6 +199,6 @@ skills/<skill-name>/
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code)
+- Harness
 - Python 3
 - Optional: PyMuPDF, numpy, scipy (see installation)

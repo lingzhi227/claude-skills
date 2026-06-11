@@ -10,8 +10,8 @@ set -euo pipefail
 #   ./install.sh --commands    # Install commands only
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILLS_DIR="$HOME/.claude/skills"
-COMMANDS_DIR="$HOME/.claude/commands"
+SKILLS_DIR="$HOME/.agent/skills"
+COMMANDS_DIR="$HOME/.agent/commands"
 
 MODE="${1:-full}"
 
@@ -153,15 +153,37 @@ if [ "$SCRIPTS_FAIL" -gt 0 ]; then
     echo "  [!] $SCRIPTS_FAIL scripts have syntax errors"
 fi
 
+# --- 5. Security Checks ---
+echo ""
+echo "[5/5] Security configuration..."
+
+# Check for S2_API_KEY environment variable
+if [ -n "${S2_API_KEY:-}" ]; then
+    echo "  [+] S2_API_KEY environment variable found"
+else
+    echo "  [-] S2_API_KEY not set (optional, for higher Semantic Scholar rate limits)"
+    echo "      See .env.example for setup instructions"
+fi
+
+# Check for insecure key file (from old version)
+if [ -f "$HOME/keys.md" ]; then
+    echo "  [!] WARNING: Found ~/keys.md - this is insecure!"
+    echo "      Please migrate to environment variables (see .env.example)"
+    echo "      Remove ~/keys.md after migration"
+fi
+
 # --- Done ---
 echo ""
 echo "=== Setup reminders ==="
 echo ""
-echo "1. Semantic Scholar API key (optional, recommended for literature search):"
-echo "   Get one at: https://www.semanticscholar.org/product/api#api-key"
-echo "   Save in ~/keys.md:  S2_API_Key: your-key-here"
+echo "1. Security: Review SECURITY.md for best practices"
 echo ""
-echo "2. Output directory for deep-research: ~/deep-research-output/"
+echo "2. API Key (optional, for higher rate limits):"
+echo "   - Get key at: https://www.semanticscholar.org/product/api#api-key"
+echo "   - Add to your shell profile: export S2_API_KEY=\"your-key-here\""
+echo "   - See .env.example for details"
+echo ""
+echo "3. Output directory for deep-research: ~/deep-research-output/"
 echo ""
 echo "=== Installation complete ==="
 echo ""

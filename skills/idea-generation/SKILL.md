@@ -17,7 +17,7 @@ Generate and refine novel research ideas with literature-backed novelty assessme
 
 ### Novelty check against Semantic Scholar
 ```bash
-python ~/.claude/skills/idea-generation/scripts/novelty_check.py \
+python ~/.agent/skills/idea-generation/scripts/novelty_check.py \
   --idea "Adaptive attention head pruning via gradient-guided importance" \
   --max-rounds 5
 ```
@@ -26,7 +26,7 @@ Performs iterative literature search to assess if an idea is novel.
 
 ## References
 
-- Ideation prompts (generation, reflection, novelty): `~/.claude/skills/idea-generation/references/ideation-prompts.md`
+- Ideation prompts (generation, reflection, novelty): `~/.agent/skills/idea-generation/references/ideation-prompts.md`
 
 ## Workflow
 

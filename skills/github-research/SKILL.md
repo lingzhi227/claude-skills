@@ -19,7 +19,7 @@ Activate this skill when the user wants to:
 
 This skill systematically discovers, evaluates, and deeply analyzes GitHub repositories related to a research topic. It reads **deep-research** output (paper database, phase reports, code references) and produces an actionable integration blueprint for reusing open-source code.
 
-**Installation**: `~/.claude/skills/github-research/` — scripts, references, and this skill definition.
+**Installation**: `~/.agent/skills/github-research/` — scripts, references, and this skill definition.
 **Output**: `./github-research-output/{slug}/` relative to the current working directory.
 **Input**: A deep-research output directory (containing `paper_db.jsonl`, phase reports, `code_repos.md`, etc.)
 
@@ -65,7 +65,7 @@ github-research-output/{slug}/
 
 ## Scripts Reference
 
-All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-research/scripts/`.
+All scripts are Python 3, stdlib-only, located in `~/.agent/skills/github-research/scripts/`.
 
 | Script | Purpose | Key Flags |
 |--------|---------|-----------|
@@ -99,7 +99,7 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 2. **Extract references from deep-research output**:
    ```bash
-   python ~/.claude/skills/github-research/scripts/extract_research_refs.py \
+   python ~/.agent/skills/github-research/scripts/extract_research_refs.py \
      --research-dir <deep-research-output-dir> \
      --output github-research-output/$SLUG/phase1_intake/extracted_refs.jsonl
    ```
@@ -130,21 +130,21 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 1. **Search by direct URLs**: Any GitHub URLs from Phase 1 → fetch metadata:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_metadata.py \
+   python ~/.agent/skills/github-research/scripts/repo_metadata.py \
      --repos owner1/name1 owner2/name2 ... \
      --output github-research-output/$SLUG/phase2_discovery/search_results/direct_urls.jsonl
    ```
 
 2. **Search Papers With Code**: For each paper with an arxiv ID:
    ```bash
-   python ~/.claude/skills/github-research/scripts/search_paperswithcode.py \
+   python ~/.agent/skills/github-research/scripts/search_paperswithcode.py \
      --arxiv-id 2401.12345 \
      --output github-research-output/$SLUG/phase2_discovery/search_results/pwc_2401.12345.jsonl
    ```
 
 3. **Search GitHub by keywords** (3-8 queries based on research themes):
    ```bash
-   python ~/.claude/skills/github-research/scripts/search_github.py \
+   python ~/.agent/skills/github-research/scripts/search_github.py \
      --query "multi-agent LLM coordination" \
      --min-stars 10 --sort stars --max-results 50 \
      --output github-research-output/$SLUG/phase2_discovery/search_results/gh_query1.jsonl
@@ -152,7 +152,7 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 4. **Search GitHub code** (for specific implementations):
    ```bash
-   python ~/.claude/skills/github-research/scripts/search_github_code.py \
+   python ~/.agent/skills/github-research/scripts/search_github_code.py \
      --query "class MultiAgentOrchestrator" \
      --language python --max-results 30 \
      --output github-research-output/$SLUG/phase2_discovery/search_results/code_query1.jsonl
@@ -160,14 +160,14 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 5. **Fetch READMEs** for repos that lack descriptions:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_readme_fetch.py \
+   python ~/.agent/skills/github-research/scripts/repo_readme_fetch.py \
      --input <repos.jsonl> \
      --output github-research-output/$SLUG/phase2_discovery/search_results/readmes.jsonl
    ```
 
 6. **Merge all results** into master database:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_db.py merge \
+   python ~/.agent/skills/github-research/scripts/repo_db.py merge \
      --inputs github-research-output/$SLUG/phase2_discovery/search_results/*.jsonl \
      --output github-research-output/$SLUG/repo_db.jsonl
    ```
@@ -193,7 +193,7 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 1. **Enrich metadata** for all repos:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_metadata.py \
+   python ~/.agent/skills/github-research/scripts/repo_metadata.py \
      --input github-research-output/$SLUG/repo_db.jsonl \
      --output github-research-output/$SLUG/repo_db.jsonl \
      --delay 0.5
@@ -201,7 +201,7 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 2. **Score repos** (quality + activity scores):
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_db.py score \
+   python ~/.agent/skills/github-research/scripts/repo_db.py score \
      --input github-research-output/$SLUG/repo_db.jsonl \
      --output github-research-output/$SLUG/repo_db.jsonl
    ```
@@ -212,17 +212,17 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
    - Code quality signals (from README, description)
    - Update the relevance scores:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_db.py tag \
+   python ~/.agent/skills/github-research/scripts/repo_db.py tag \
      --input github-research-output/$SLUG/repo_db.jsonl \
      --ids owner/name --tags "relevance:0.85"
    ```
 
 4. **Compute composite scores and rank**:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_db.py score \
+   python ~/.agent/skills/github-research/scripts/repo_db.py score \
      --input github-research-output/$SLUG/repo_db.jsonl \
      --output github-research-output/$SLUG/repo_db.jsonl
-   python ~/.claude/skills/github-research/scripts/repo_db.py rank \
+   python ~/.agent/skills/github-research/scripts/repo_db.py rank \
      --input github-research-output/$SLUG/repo_db.jsonl \
      --output github-research-output/$SLUG/phase3_filtering/ranked_repos.jsonl \
      --by composite_score
@@ -230,7 +230,7 @@ All scripts are Python 3, stdlib-only, located in `~/.claude/skills/github-resea
 
 5. **Select top repos**: Filter to top 15-30:
    ```bash
-   python ~/.claude/skills/github-research/scripts/repo_db.py filter \
+   python ~/.agent/skills/github-research/scripts/repo_db.py filter \
      --input github-research-output/$SLUG/phase3_filtering/ranked_repos.jsonl \
      --output github-research-output/$SLUG/phase3_filtering/ranked_repos.jsonl \
      --max-repos 30 --not-archived
@@ -264,28 +264,28 @@ composite_score = relevance * 0.4 + quality * 0.35 + activity * 0.25
 
 2. **Clone each repo** (shallow):
    ```bash
-   python ~/.claude/skills/github-research/scripts/clone_repo.py \
+   python ~/.agent/skills/github-research/scripts/clone_repo.py \
      --repo owner/name \
      --output-dir github-research-output/$SLUG/phase4_deep_dive/repos/
    ```
 
 3. **Analyze structure** for each cloned repo:
    ```bash
-   python ~/.claude/skills/github-research/scripts/analyze_repo_structure.py \
+   python ~/.agent/skills/github-research/scripts/analyze_repo_structure.py \
      --repo-dir github-research-output/$SLUG/phase4_deep_dive/repos/name/ \
      --output github-research-output/$SLUG/phase4_deep_dive/analyses/name_structure.json
    ```
 
 4. **Extract dependencies**:
    ```bash
-   python ~/.claude/skills/github-research/scripts/extract_dependencies.py \
+   python ~/.agent/skills/github-research/scripts/extract_dependencies.py \
      --repo-dir github-research-output/$SLUG/phase4_deep_dive/repos/name/ \
      --output github-research-output/$SLUG/phase4_deep_dive/analyses/name_deps.json
    ```
 
 5. **Find implementations**: Search for key algorithms/concepts from research:
    ```bash
-   python ~/.claude/skills/github-research/scripts/find_implementations.py \
+   python ~/.agent/skills/github-research/scripts/find_implementations.py \
      --repo-dir github-research-output/$SLUG/phase4_deep_dive/repos/name/ \
      --patterns "class Transformer" "def forward" "attention" \
      --output github-research-output/$SLUG/phase4_deep_dive/analyses/name_impls.jsonl
@@ -324,7 +324,7 @@ Do NOT just summarize READMEs. You must:
 
 1. **Generate comparison matrix**:
    ```bash
-   python ~/.claude/skills/github-research/scripts/compare_repos.py \
+   python ~/.agent/skills/github-research/scripts/compare_repos.py \
      --input github-research-output/$SLUG/phase4_deep_dive/analyses/ \
      --output github-research-output/$SLUG/phase5_analysis/comparison.json
    ```
@@ -370,7 +370,7 @@ Do NOT just summarize READMEs. You must:
 
 3. **Compile final report**:
    ```bash
-   python ~/.claude/skills/github-research/scripts/compile_github_report.py \
+   python ~/.agent/skills/github-research/scripts/compile_github_report.py \
      --topic-dir github-research-output/$SLUG/
    ```
 
@@ -410,5 +410,5 @@ Do NOT just summarize READMEs. You must:
 ## References
 
 - See `references/phase-guide.md` for detailed phase execution guidance
-- Deep-research skill: `~/.claude/skills/deep-research/SKILL.md`
-- Paper database pattern: `~/.claude/skills/deep-research/scripts/paper_db.py`
+- Deep-research skill: `~/.agent/skills/deep-research/SKILL.md`
+- Paper database pattern: `~/.agent/skills/deep-research/scripts/paper_db.py`

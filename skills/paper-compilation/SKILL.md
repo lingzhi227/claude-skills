@@ -16,22 +16,22 @@ Compile a LaTeX paper to PDF with error detection and correction.
 
 ### Compile paper
 ```bash
-python ~/.claude/skills/paper-compilation/scripts/compile_paper.py paper/main.tex
-python ~/.claude/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --check-style
-python ~/.claude/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --output paper/output.pdf
+python ~/.agent/skills/paper-compilation/scripts/compile_paper.py paper/main.tex
+python ~/.agent/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --check-style
+python ~/.agent/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --output paper/output.pdf
 ```
 
 Reports: compilation status, page count, warnings, citation/reference stats, style issues.
 
 ### Validate citations before compiling
 ```bash
-python ~/.claude/skills/citation-management/scripts/validate_citations.py \
+python ~/.agent/skills/citation-management/scripts/validate_citations.py \
   --tex paper/main.tex --bib paper/references.bib --check-figures --figures-dir paper/figures/
 ```
 
 ### Auto-fix LaTeX errors
 ```bash
-python ~/.claude/skills/paper-compilation/scripts/fix_latex_errors.py \
+python ~/.agent/skills/paper-compilation/scripts/fix_latex_errors.py \
   --tex paper/main.tex --log compile.log --output paper/main_fixed.tex
 ```
 
@@ -39,7 +39,7 @@ Fixes: HTML tags in LaTeX, mismatched environments, missing figures. Key flags: 
 
 ### Compile with auto-fix retry
 ```bash
-python ~/.claude/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --auto-fix
+python ~/.agent/skills/paper-compilation/scripts/compile_paper.py paper/main.tex --auto-fix
 ```
 
 Runs fix_latex_errors.py + recompile up to 3 rounds until compilation succeeds.
