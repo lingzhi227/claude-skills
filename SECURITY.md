@@ -88,7 +88,6 @@ cd agent-research-skills
 
 All skills use `~/.agent/skills/` as the base directory, making them harness-agnostic and compatible with:
 
-- Claude Code
 - Other AI agent frameworks
 - Direct command-line usage
 

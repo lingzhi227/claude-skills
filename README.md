@@ -2,7 +2,7 @@
 
 31 skills for AI agents covering the full academic research paper lifecycle — from literature search to slide generation — plus GitHub repository analysis for research topics.
 
-Harness-agnostic: works with Claude Code, Windsurf, and other AI agent frameworks.
+Harness-agnostic: works with any AI agent framework.
 
 Extracted from 17 GitHub repos studying LLM-agent-driven research automation. See [SKILLS_DESIGN.md](SKILLS_DESIGN.md) for the original design specifications.
 
@@ -199,6 +199,6 @@ skills/<skill-name>/
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code)
+- Harness
 - Python 3
 - Optional: PyMuPDF, numpy, scipy (see installation)
