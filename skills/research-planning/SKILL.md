@@ -1,7 +1,7 @@
 ---
 name: research-planning
 description: Design research plans and paper architectures. Given a research topic or idea, generate structured plans with methodology outlines, paper structure, dependency-ordered task lists, UML diagrams, and experiment designs. Use when starting a new research project or paper.
-argument-hint: [topic-or-idea]
+argument-hint: "[topic-or-idea]"
 ---
 
 # Research Planning

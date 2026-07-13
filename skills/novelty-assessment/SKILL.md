@@ -1,7 +1,7 @@
 ---
 name: novelty-assessment
 description: Assess research idea novelty through systematic literature search. Multi-round search-evaluate loops with harsh critic persona. Binary novel/not-novel decision with justification. Use before committing to a research direction.
-argument-hint: [idea]
+argument-hint: "[idea]"
 ---
 
 # Novelty Assessment

@@ -1,7 +1,7 @@
 ---
 name: paper-compilation
 description: Compile LaTeX papers to PDF with automatic error detection, chktex style checking, and citation/reference validation. Runs the full pdflatex + bibtex pipeline. Use when the user wants to compile a paper, fix compilation errors, or debug LaTeX.
-argument-hint: [tex-file-path]
+argument-hint: "[tex-file-path]"
 ---
 
 # Paper Compilation

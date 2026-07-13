@@ -1,7 +1,7 @@
 ---
 name: symbolic-equation
 description: Discover scientific equations from data using LLM-guided evolutionary search (LLM-SR). Multi-island algorithm with softmax-based cluster sampling, island reset, and LLM-proposed equation mutations. Use for symbolic regression and equation discovery.
-argument-hint: [data-and-variables]
+argument-hint: "[data-and-variables]"
 ---
 
 # Symbolic Equation Discovery

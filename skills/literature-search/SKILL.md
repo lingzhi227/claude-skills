@@ -1,7 +1,7 @@
 ---
 name: literature-search
 description: Search academic literature using Semantic Scholar, arXiv, and OpenAlex APIs. Returns structured JSONL with title, authors, year, venue, abstract, citations, and BibTeX. Use when the user needs to find papers, check related work, or build a bibliography.
-argument-hint: [search-query]
+argument-hint: "[search-query]"
 ---
 
 # Literature Search

@@ -1,7 +1,7 @@
 ---
 name: algorithm-design
 description: Design algorithms with LaTeX pseudocode and UML diagrams. Generate algorithmic environments, Mermaid class/sequence diagrams, and ensure consistency between pseudocode and implementation. Use when formalizing methods for a paper.
-argument-hint: [method-description]
+argument-hint: "[method-description]"
 ---
 
 # Algorithm Design
