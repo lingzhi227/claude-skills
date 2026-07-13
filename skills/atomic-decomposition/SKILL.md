@@ -1,7 +1,7 @@
 ---
 name: atomic-decomposition
 description: Decompose research ideas into atomic, self-contained concepts with bidirectional math-code mapping. For each concept, extract the math formula from papers and find code implementations. Use for complex system papers requiring formal grounding.
-argument-hint: [idea-or-paper]
+argument-hint: "[idea-or-paper]"
 ---
 
 # Atomic Decomposition

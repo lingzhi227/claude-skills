@@ -1,7 +1,7 @@
 ---
 name: code-debugging
 description: Debug experiment code with structured error analysis. Categorize errors, apply targeted fixes with retry logic, and use reflection to prevent recurring issues. Use when experiment code fails or produces incorrect results.
-argument-hint: [error-or-code]
+argument-hint: "[error-or-code]"
 ---
 
 # Code Debugging

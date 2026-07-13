@@ -1,7 +1,7 @@
 ---
 name: paper-assembly
 description: Orchestrate the full paper pipeline end-to-end. Manage state propagation between phases (literature → plan → code → experiments → figures → tables → writing → review), support checkpointing and resumption. Use for assembling a complete paper from components.
-argument-hint: [paper-directory]
+argument-hint: "[paper-directory]"
 ---
 
 # Paper Assembly

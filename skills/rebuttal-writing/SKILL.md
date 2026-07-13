@@ -1,7 +1,7 @@
 ---
 name: rebuttal-writing
 description: Write point-by-point rebuttals to reviewer comments. Extract concerns from reviews, generate evidence-based responses, and format as a structured rebuttal document. Use after receiving peer review feedback.
-argument-hint: [reviews-file]
+argument-hint: "[reviews-file]"
 ---
 
 # Rebuttal Writing
